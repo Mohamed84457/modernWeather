@@ -69,8 +69,8 @@ function Layout() {
   const status = useSidebarStore((state) => state.status);
   const changeStatus = useSidebarStore((state) => state.setStatus);
   return (
-    <div className="min-h-screen bg-slate-950  flex  scroll-smooth">
-      <div className="absolute inset-0">
+    <div className="min-h-screen bg-slate-950 flex scroll-smooth relative overflow-x-hidden w-full">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-[150px]" />
         <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-blue-600/20 blur-[120px]" />
         <div className="absolute top-1/2 left-1/2 h-[300px] w-[300px] rounded-full bg-sky-400/10 blur-[100px]" />
