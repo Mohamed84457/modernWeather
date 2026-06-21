@@ -1,4 +1,3 @@
-import { CloudRainWind, Snowflake } from "lucide-react";
 
 interface Iprops {
   isDay: boolean;

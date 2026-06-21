@@ -17,7 +17,7 @@ export default function Header() {
   const unit = useDegreeUnit((state) => state.degreeUnit);
   const setUnit = useDegreeUnit((state) => state.setDegreeUnit);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: string) => {
     if (e === "Enter") navigate(`/Search?q=${query}`);
   };
   return (

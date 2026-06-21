@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import type { HomeResponse } from "../../types/HomeData";
 // action
 import { GetCurrentWeatherDependonLatLog } from "../../api/requests/HomeRequst";
 // component
@@ -9,7 +10,7 @@ import { useLanguage } from "../../stores/lang.store";
 export default function Weather() {
     const lang=useLanguage((state)=>state.lang)
 
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<HomeResponse | null>(null);
   const [searchParams] = useSearchParams();
   //   get lat and lon of city
   const lat = searchParams.get("lat");

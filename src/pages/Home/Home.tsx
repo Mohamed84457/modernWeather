@@ -59,12 +59,12 @@ export default function Home() {
               isDay={homeData?.current?.is_day}
               localTime={formatDateTime(homeData?.location?.localtime)}
               condition={{
-                text: homeData?.current?.condition.text,
-                icon: homeData?.current?.condition.icon,
-                code: homeData?.current?.condition.code,
+                text: homeData.current.condition.text,
+                icon: homeData.current.condition.icon ?? "",
+                code: homeData.current.condition.code ?? 0,
               }}
               temp_c={
-                ifCelsius ? homeData.current.temp_c : homeData?.current?.temp_f
+                ifCelsius ? homeData.current.temp_c : homeData.current.temp_f
               } //check f or c
               feelTemp={
                 ifCelsius

@@ -2,9 +2,17 @@ import { Sparkles } from "lucide-react";
 import { SkySun } from "./sunSycle";
 import { MoonPhase } from "../../../components/lunerSystem";
 import Stargazing from "./Stargazing";
+import type { location } from "../../../types/HomeData";
+import type { astro } from "../../../types/astronomyData";
 // store
 import { useCurrentHomeData } from "../../../stores/CurrentHomeData.store";
-export default function FullAstronomyCard({ location, astro }) {
+
+interface FullAstronomyCardProps {
+  location: location;
+  astro: astro;
+}
+
+export default function FullAstronomyCard({ location, astro }: FullAstronomyCardProps) {
   const forecastHomeData = useCurrentHomeData(
     (state) => state.homeforecastdata,
   );
@@ -64,8 +72,8 @@ export default function FullAstronomyCard({ location, astro }) {
         </div>
         <div>
           <Stargazing
-            clouds={forecastHomeData.current.cloud}
-            visability={forecastHomeData.current.vis_km}
+            clouds={forecastHomeData?.current?.cloud ?? 0}
+            visability={forecastHomeData?.current?.vis_km ?? 10}
           />
         </div>
       </div>

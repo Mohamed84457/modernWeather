@@ -1,7 +1,8 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Search as SearchIcon } from "lucide-react";
 // components
-import SearchResults from "./components/searchCard";
+import SearchResults  from "./components/searchCard";
+import type{ SearchItem } from "./components/searchCard";
 // actions
 import { GetSearchData } from "../../api/requests/SearchReuest";
 // store
@@ -14,7 +15,7 @@ export default function Search() {
   // loading
   const [loading, setLoading] = useState(false);
   // result
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState<SearchItem[]>([]);
   const navigate = useNavigate();
   //   store
   const query = useSearchStore((state) => state.query);
@@ -38,20 +39,20 @@ export default function Search() {
   };
   //   get search result
   useEffect(() => {
-    const getSearchData = () => {
+    const getSearchData = (searchCity: string) => {
       setLoading(true);
-      GetSearchData(city,lang).then((res) => {
+      GetSearchData(searchCity, lang).then((res) => {
         console.log("res:", res);
         setLoading(false);
         setResult(res.data);
       });
     };
     if (city) {
-      getSearchData();
+      getSearchData(city);
     }
-  }, [city]);
+  }, [city, lang]);
   //   handle select city
-  const handleSelectCity = (item) => {
+  const handleSelectCity = (item: SearchItem) => {
     navigate(`/Weather?lat=${item?.lat}&lon=${item?.lon}`);
   };
   return (

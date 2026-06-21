@@ -18,7 +18,6 @@ export default function TimeZoneConverter() {
   const [resultTime, setResultTime] = useState("");
 
   const [fromLoading, setFromLoading] = useState(false);
-  const [toLoading, setToLoading] = useState(false);
   const [convertLoading, setConvertLoading] = useState(false);
   const [fromError, setFromError] = useState<string | null>(null);
   const [toError, setToError] = useState<string | null>(null);
@@ -78,7 +77,7 @@ export default function TimeZoneConverter() {
       setFromLoading(true);
       setFromError(null);
       try {
-        const res = await GetTimeZoneData(lat, log, null, lang);
+        const res = await GetTimeZoneData(lat, log, undefined, lang);
         const loc = res?.data?.location;
         if (!loc?.tz_id) {
           setFromError("Couldn't detect your location's timezone.");
@@ -103,7 +102,7 @@ export default function TimeZoneConverter() {
     setFromLoading(true);
     setFromError(null);
     try {
-      const res = await GetTimeZoneData(null, null, fromRegion, lang);
+      const res = await GetTimeZoneData(undefined, undefined, fromRegion, lang);
       const loc = res?.data?.location;
       if (!loc?.tz_id) {
         setFromError(`Couldn't find timezone for "${fromRegion}".`);
@@ -124,10 +123,9 @@ export default function TimeZoneConverter() {
       return null;
     }
 
-    setToLoading(true);
     setToError(null);
     try {
-      const res = await GetTimeZoneData(null, null, toRegion, lang);
+      const res = await GetTimeZoneData(undefined, undefined, toRegion, lang);
       const loc = res?.data?.location;
       if (!loc?.tz_id) {
         setToError(`Couldn't find timezone for "${toRegion}".`);
@@ -138,8 +136,6 @@ export default function TimeZoneConverter() {
     } catch (err) {
       setToError("Failed to look up that city. Please try again.");
       return null;
-    } finally {
-      setToLoading(false);
     }
   };
 

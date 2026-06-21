@@ -23,7 +23,7 @@ export default function Forecast() {
   const { lat, log } = userLocation;
 
   const [forecastData, setForecastData] =
-    useState<HomeResponse2>(null);
+    useState<HomeResponse2 | null>(null);
 
   const [selectedDay, setSelectedDay] = useState(0);
   const [days, setDays] = useState<3 | 7 | 14>(3);

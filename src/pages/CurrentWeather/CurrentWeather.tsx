@@ -1,5 +1,4 @@
 // components
-import WeatherHeader from "../../components/weatherHeader";
 import WeatherDashboard from "./components/fullyWeatherCard";
 // strore
 import { useCurrentHomeData } from "../../stores/CurrentHomeData.store";

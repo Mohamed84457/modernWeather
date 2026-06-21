@@ -4,40 +4,6 @@ import type { location } from "../../../types/HomeData";
 // store
 import { useDegreeUnit } from "../../../stores/degreeUnit.store";
 import type { forecastday } from "../../../types/HomeData";
-interface forecast {
-  forecastday: Array<{
-    date: string;
-
-    day: {
-      maxtemp_c: number;
-      mintemp_c: number;
-      avgtemp_c: number;
-      daily_chance_of_rain: number;
-      daily_chance_of_snow: number;
-    };
-
-    astro: {
-      sunrise: string;
-      sunset: string;
-      moonrise: string;
-      moonset: string;
-      moon_phase: string;
-      moon_illumination: number;
-    };
-
-    hour: Array<{
-      time: string;
-      temp_c: number;
-      temp_f: number;
-      chance_of_rain: number;
-      humidity: number;
-      condition: {
-        text: string;
-        icon: string;
-      };
-    }>;
-  }>;
-}
 
 import {
   Droplets,

@@ -1,6 +1,6 @@
 import { MapPin, Globe } from "lucide-react";
 
-interface SearchItem {
+export interface SearchItem {
   id: number;
   name: string;
   region: string;
