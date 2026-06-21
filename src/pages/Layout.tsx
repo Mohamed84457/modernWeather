@@ -84,12 +84,6 @@ function Layout() {
         />
       )}
 
-      <button
-        className="fixed top-4 left-4 z-50 bg-white/10 backdrop-blur md:hidden p-2 rounded-lg  text-white cursor-pointer transform  hover:scale-110 active:scale-80 transition-all duration-150"
-        onClick={() => changeStatus(true)}
-      >
-        <Menu size={24} />
-      </button>
       <aside
         className={`
     fixed top-0 left-0 z-50
@@ -114,20 +108,29 @@ function Layout() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-4 md:p-6  ">
+      <main className="flex-1 p-4 md:p-6 w-full max-w-full overflow-hidden">
         <div className="flex flex-col min-h-[calc(100vh-2rem)] rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl">
           {/* Header */}
-          <header className="flex justify-between items-center px-6 py-4 border-b border-white/10">
-            {!loading && <Header />}
+          <header className="flex items-center px-4 md:px-6 py-3 border-b border-white/10">
+            <button
+              className="bg-white/10 backdrop-blur md:hidden p-2 rounded-lg text-white cursor-pointer hover:bg-white/20 transition-all duration-150 mr-2.5 flex-shrink-0"
+              onClick={() => changeStatus(true)}
+              type="button"
+            >
+              <Menu size={20} />
+            </button>
+            <div className="flex-1 min-w-0">
+              {!loading && <Header />}
+            </div>
           </header>
 
           {/* Content */}
-          <section className="flex-1 p-6 overflow-auto">
+          <section className="flex-1 p-4 md:p-6 overflow-auto">
             <Outlet />
           </section>
 
           {/* Footer */}
-          <footer className="px-6 py-4 border-t border-white/10 text-center text-sm text-gray-400">
+          <footer className="px-4 md:px-6 py-4 border-t border-white/10 text-center text-sm text-gray-400">
             © 2026 DMT Weather • Powered by WeatherAPI
           </footer>
         </div>

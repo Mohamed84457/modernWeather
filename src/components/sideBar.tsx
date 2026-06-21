@@ -96,8 +96,8 @@ export default function SideBar() {
                 }, 300);
               }}
               className={`
-            relative flex items-center justify-center
-            px-4 py-3 rounded-xl mt-2
+            relative flex items-center justify-start
+            px-6 py-3 rounded-xl mt-2 group
             font-medium transition-all duration-300 cursor-pointer
             ${
               active
@@ -109,9 +109,11 @@ export default function SideBar() {
               {active && (
                 <div className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-white" />
               )}
-              <div className="flex items-center gap-1">
-                {n.icons}
-                {n.label}
+              <div className="flex items-center gap-3.5">
+                <span className="flex-shrink-0 [&_svg]:size-5">
+                  {n.icons}
+                </span>
+                <span className="text-sm font-semibold tracking-wide">{n.label}</span>
               </div>
             </button>
           );

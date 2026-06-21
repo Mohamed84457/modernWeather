@@ -21,28 +21,28 @@ export default function Header() {
     if (e === "Enter") navigate(`/Search?q=${query}`);
   };
   return (
-    <div className="flex items-center justify-between w-full px-4 py-3">
+    <div className="flex items-center justify-between w-full py-1 gap-2">
       {/* LEFT */}
-      <div className="flex items-center gap-3 text-white">
-        <MapPin className="text-blue-400" />
+      <div className="flex items-center gap-2 sm:gap-3 text-white min-w-0">
+        <MapPin className="text-blue-400 flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5" />
 
-        <div className="leading-tight">
-          <h2 className="font-semibold text-lg">
-            {homeData?.location?.name} /{homeData?.location?.country}
+        <div className="leading-tight min-w-0">
+          <h2 className="font-semibold text-sm sm:text-lg truncate">
+            {homeData?.location?.name} / {homeData?.location?.country}
           </h2>
-          <p className="text-xs text-gray-300">
+          <p className="text-[10px] sm:text-xs text-gray-300 hidden sm:block truncate">
             lon: {homeData?.location?.lon} • lat: {homeData?.location?.lat}
           </p>
         </div>
       </div>
 
       {/* RIGHT */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap justify-end flex-shrink-0">
         {/* UNIT TOGGLE */}
-        <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1">
+        <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-0.5 sm:p-1 flex-shrink-0">
           <button
             onClick={() => setUnit("f")}
-            className={`px-3 py-1 text-sm rounded-full transition ${
+            className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-sm rounded-full transition ${
               unit === "f"
                 ? "bg-blue-600 text-white"
                 : "text-gray-300 hover:text-white"
@@ -53,7 +53,7 @@ export default function Header() {
 
           <button
             onClick={() => setUnit("c")}
-            className={`px-3 py-1 text-sm rounded-full transition ${
+            className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-sm rounded-full transition ${
               unit === "c"
                 ? "bg-blue-600 text-white"
                 : "text-gray-300 hover:text-white"
@@ -62,28 +62,31 @@ export default function Header() {
             °C
           </button>
         </div>
+
         {/* lang TOGGLE */}
-        <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1">
+        <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-0.5 sm:p-1 flex-shrink-0">
           <button
             onClick={() => setLang("ar")}
-            className={`px-3 py-1 text-sm rounded-full transition ${
+            className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-sm rounded-full transition ${
               lang === "ar"
                 ? "bg-blue-600 text-white"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            arabic
+            <span className="hidden sm:inline">arabic</span>
+            <span className="sm:hidden">AR</span>
           </button>
 
           <button
             onClick={() => setLang("en")}
-            className={`px-3 py-1 text-sm rounded-full transition ${
+            className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-sm rounded-full transition ${
               lang === "en"
                 ? "bg-blue-600 text-white"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            english
+            <span className="hidden sm:inline">english</span>
+            <span className="sm:hidden">EN</span>
           </button>
         </div>
 
@@ -104,8 +107,8 @@ export default function Header() {
         </div>
 
         {/* NOTIFICATION */}
-        <button className="p-2 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition active:scale-95">
-          <BellRing size={18} />
+        <button className="p-1.5 sm:p-2 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition active:scale-95 flex-shrink-0">
+          <BellRing size={16} className="sm:w-[18px] sm:h-[18px]" />
         </button>
       </div>
     </div>
