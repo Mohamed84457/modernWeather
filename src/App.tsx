@@ -21,16 +21,18 @@ function App() {
   return (
     <>
       <Routes>
-        <Route Component={Layout}>
-          <Route path="en" index Component={Home}></Route>
-          <Route path="CurrentWeather" Component={CurrentWeather}></Route>
-          <Route path="Historical" Component={Historical}></Route>
-          <Route path="Forecast" Component={Forecast}></Route>
-          <Route path="Search" Component={Search}></Route>
-          <Route path="Weather" Component={Weather}></Route>
-          <Route path="Astronomy" Component={Astronomy}></Route>
-          <Route path="TimeZoneConverter" Component={TimeZoneConverter}></Route>
-          <Route path="Future" Component={Future}></Route>
+        <Route element={<Layout />}>
+          <Route path="en">
+            <Route index element={<Home />} />
+            <Route path="forecast" element={<Forecast />} />
+            <Route path="search" element={<Search />} />
+            <Route path="historical" element={<Historical />} />
+            <Route path="current-weather" element={<CurrentWeather />} />
+            <Route path="weather" element={<Weather />} />
+            <Route path="astronomy" element={<Astronomy />} />
+            <Route path="timezone-converter" element={<TimeZoneConverter />} />
+            <Route path="future" element={<Future />} />
+          </Route>
         </Route>
       </Routes>
     </>
