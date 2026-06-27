@@ -24,14 +24,14 @@ function App() {
         <Route element={<Layout />}>
           <Route path="en">
             <Route index element={<Home />} />
-            <Route path="forecast" element={<Forecast />} />
-            <Route path="search" element={<Search />} />
-            <Route path="historical" element={<Historical />} />
-            <Route path="current-weather" element={<CurrentWeather />} />
-            <Route path="weather" element={<Weather />} />
-            <Route path="astronomy" element={<Astronomy />} />
-            <Route path="timezone-converter" element={<TimeZoneConverter />} />
-            <Route path="future" element={<Future />} />
+            <Route path="Forecast" element={<Forecast />} />
+            <Route path="Search" element={<Search />} />
+            <Route path="Historical" element={<Historical />} />
+            <Route path="CurrentWeather" element={<CurrentWeather />} />
+            <Route path="Weather" element={<Weather />} />
+            <Route path="Astronomy" element={<Astronomy />} />
+            <Route path="TimeZoneConverter" element={<TimeZoneConverter />} />
+            <Route path="Future" element={<Future />} />
           </Route>
         </Route>
       </Routes>
